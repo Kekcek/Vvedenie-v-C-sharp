@@ -37,7 +37,7 @@ else
     */
 
 // Task 3. Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
-
+/*
 bool isWeekend(int daysNumber)
 {
      if (daysNumber > 0 && daysNumber < 6)
@@ -53,3 +53,4 @@ else if (isWeekend(daysNumber))
         Console.WriteLine("Хватит сидеть за компом. Пора отдыхать");
     else 
         Console.WriteLine("Я знаю, что не хочется, но пора на работу(");
+*/
