@@ -17,7 +17,7 @@ num = Convert.ToInt32(Console.ReadLine());
 
 // Seminar 1 
 // Task 1. Напишите программу, которая на вход принимает два числа и проверяет, является ли первое число квадратом второго.
-/*
+
 Console.Write("Input a first number: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
 
@@ -30,7 +30,7 @@ if (num1 == quad2)
     Console.WriteLine("Yes!");
 else
     Console.WriteLine("No!");
-*/
+
 
 // Task 2. Напишите программу, которая принимает на вход одно число N, а на выходе показывает все целые числа от -N до N.
 
