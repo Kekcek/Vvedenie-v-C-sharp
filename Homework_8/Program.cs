@@ -194,7 +194,91 @@ if (array1.GetLength(1) == array2.GetLength(0))
 PrintArray(result);
 */
 
-// Task 4. Напишите программу, которая заполнит спирально динамический массив.
+// Task 4. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+/*
+int[,,] CreateRandomArray()
+{
+    int rows = 0;
+    int columns = 0;
+    int deep = 0;
+    while(true)
+    {
+        Console.WriteLine("Введите количество строк массива");
+        rows = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Введите количество столбцов массива");
+        columns = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Введите количество глубину массива");
+        deep = Convert.ToInt32(Console.ReadLine());
+        if (rows * columns * deep > 90)
+            Console.WriteLine("Такой размер массива недопустим. Введите другие значения");
+        else break;
+    }
+    int[,,] array = new int[rows, columns, deep];
+    int temp = 0;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                for (int k = 0; k < array.GetLength(2); k++)
+                {
+                    while(true)
+                    {
+                        temp = new Random().Next(10, 100);
+                        if (CheckNumber(array, temp))
+                        {
+                            array[i,j,k] = temp;
+                            break;
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+    return array;
+}
+
+bool CheckNumber(int[,,] array, int num)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                for (int k = 0; k < array.GetLength(2); k++)
+                {
+                    if (array[i,j,k] == num)
+                    return false;
+                }
+                
+            }
+        }
+    return true;
+}
+
+void PrintArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]} ({i},{j},{k}) ");
+            }
+            Console.Write("    ");
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+int[,,] myArray = CreateRandomArray();
+PrintArray(myArray);
+*/
+
+// Task 5. Напишите программу, которая заполнит спирально динамический массив.
 /*
 void FillingInCircle(int[,] array)
 {
@@ -259,83 +343,3 @@ FillingInCircle(array);
 PrintArray(array);
 */
 
-// Task 5. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
-
-int[,,] CreateRandomArray()
-{
-    int rows = 0;
-    int columns = 0;
-    int deep = 0;
-    while(true)
-    {
-        Console.WriteLine("Введите количество строк массива");
-        rows = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите количество столбцов массива");
-        columns = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите количество глубину массива");
-        deep = Convert.ToInt32(Console.ReadLine());
-        if (rows + columns + deep > 12)
-            Console.WriteLine("Такой размер массива недопустим. Введите другие значения");
-        else break;
-    }
-    int[,,] array = new int[rows, columns, deep];
-    int temp = 0;
-
-    for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                for (int k = 0; k < array.GetLength(2); k++)
-                {
-                    while(true)
-                    {
-                        temp = new Random().Next(10, 100);
-                        if (CheckNumber(array, temp))
-                        {
-                            array[i,j,k] = temp;
-                            break;
-                        }
-                        
-                    }
-                }
-                
-            }
-        }
-    return array;
-}
-
-bool CheckNumber(int[,,] array, int num)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                for (int k = 0; k < array.GetLength(2); k++)
-                {
-                    if (array[i,j,k] == num)
-                    return false;
-                }
-                
-            }
-        }
-    return true;
-}
-
-void PrintArray(int[,,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            for (int k = 0; k < array.GetLength(2); k++)
-            {
-                Console.Write(array[i, j, k] + " ");
-            }
-        }
-        Console.WriteLine();
-    }
-    Console.WriteLine();
-}
-
-int[,,] myArray = CreateRandomArray();
-PrintArray(myArray);
